@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pick a Date!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Cute Meme GIF -->
+        <img id="meme-gif" src="https://media.giphy.com/media/2v170e71aanii/giphy.gif" alt="Cute bear asking out">
+        
+        <h1 id="question">Will you go on a date with me?</h1>
+
+        <!-- Buttons -->
+        <div id="options" class="btn-container">
+            <button id="yes-btn" onclick="acceptDate()">Yes! 🥰</button>
+            <button id="no-btn" onmouseover="moveButton()" onclick="moveButton()">No 😢</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
