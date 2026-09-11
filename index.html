@@ -4,21 +4,21 @@
         <img src="https://media.tenor.com/kkxWF2DrTRIAAAAj/cat-meme-elgatitolover.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Cute cat meme">
     </div>
     
-    <h2 id="main-text" style="color: #ff4d4d; font-size: 22px; margin-bottom: 30px;">Kita, will you go on a date with me?</h2>
+    <h2 id="main-text" style="color: #ff4d4d; font-size: 22px; margin-bottom: 25px;">Kita, will you go on a date with me?</h2>
 
-    <!-- Initial Buttons Container -->
-    <div id="initial-buttons" style="position: relative; height: 70px; width: 100%; display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <!-- Initial Buttons Container with explicit safe area -->
+    <div id="initial-buttons" style="position: relative; height: 100px; width: 100%; display: flex; justify-content: center; align-items: flex-start; gap: 20px;">
         <button onclick="acceptDate()" style="background-color: #4CAF50; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; z-index: 2;">Yes! 🥰</button>
         
-        <button id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()" style="background-color: #f44336; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; position: absolute; z-index: 1;">No 😢</button>
+        <button id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()" style="background-color: #f44336; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; position: absolute; z-index: 1; left: 55%;">No 😢</button>
     </div>
 </div>
 
 <script>
 function dodgeButton() {
     const noBtn = document.getElementById("no-btn");
-    const randomX = (Math.random() - 0.5) * 200;
-    const randomY = (Math.random() - 0.5) * 100;
+    const randomX = (Math.random() - 0.5) * 220;
+    const randomY = (Math.random() - 0.5) * 80;
     noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
 }
 
