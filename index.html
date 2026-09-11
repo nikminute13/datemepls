@@ -1,13 +1,13 @@
 <div id="meme-container" style="text-align: center; font-family: 'Arial', sans-serif; padding: 20px; max-width: 400px; margin: 0 auto;">
-    <!-- Fixed-Size GIF Container so buttons don't jump -->
+    <!-- Fixed-Size GIF Container -->
     <div style="height: 180px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
         <img src="https://media.tenor.com/kkxWF2DrTRIAAAAj/cat-meme-elgatitolover.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Cute cat meme">
     </div>
     
     <h2 id="main-text" style="color: #ff4d4d; font-size: 22px; margin-bottom: 30px;">Will you go on a date with me?</h2>
 
-    <!-- Buttons Container with fixed height clearance -->
-    <div style="position: relative; height: 70px; width: 100%; display: flex; justify-content: center; align-items: center; gap: 20px;">
+    <!-- Initial Buttons Container -->
+    <div id="initial-buttons" style="position: relative; height: 70px; width: 100%; display: flex; justify-content: center; align-items: center; gap: 20px;">
         <button onclick="acceptDate()" style="background-color: #4CAF50; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; z-index: 2;">Yes! 🥰</button>
         
         <button id="no-btn" onmouseover="dodgeButton()" onclick="dodgeButton()" style="background-color: #f44336; color: white; border: none; padding: 12px 25px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; position: absolute; z-index: 1;">No 😢</button>
@@ -30,10 +30,12 @@ function acceptDate() {
         </div>
         <h2 style="color: #ff4d4d; font-size: 22px; margin-bottom: 15px;">Yay! Knew you'd say yes. 🥰</h2>
         <p style="font-size: 16px; color: #333; margin-bottom: 20px; font-weight: bold;">Choose your adventure:</p>
-        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
-            <button onclick="alert('Dinner & Drinks it is! 🍷')" style="background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 200px;">Fancy Dinner 🍝</button>
-            <button onclick="alert('Movies and snacks locked in! 🍿')" style="background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 200px;">Movies & Snacks 🎬</button>
-            <button onclick="alert('Arcade/Activity showdown! 🕹️')" style="background: #ff4d4d; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; width: 200px;">Arcade / Activity 🎳</button>
+        
+        <!-- Uniform Stacked Layout for Longer Text Options -->
+        <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%;">
+            <button onclick="alert('Wine bar and trauma dump locked in! 🍷')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🍷 Wine bar and trauma dump</button>
+            <button onclick="alert('Thrifting silly outfits locked in! 🧥')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">✨ Go thrifting for silly outfits then go to dinner in them</button>
+            <button onclick="alert('Arcade flexing locked in! 🕹️')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🕹️ Make it rain at the arcade and flex on the kids</button>
         </div>
     `;
 }
