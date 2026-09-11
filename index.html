@@ -15,6 +15,8 @@
 </div>
 
 <script>
+let selectedAdventure = "";
+
 function dodgeButton() {
     const noBtn = document.getElementById("no-btn");
     noBtn.style.position = "absolute";
@@ -29,15 +31,58 @@ function acceptDate() {
         <div style="height: 180px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
             <img src="https://media1.tenor.com/m/CarV7GDhiwQAAAAC/yippee-cat.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Yippee cat">
         </div>
-        <h2 style="color: #ff4d4d; font-size: 22px; margin-bottom: 15px;">Yay! Knew you'd say yes. 🥰</h2>
-        <p style="font-size: 16px; color: #333; margin-bottom: 20px; font-weight: bold;">Choose your adventure:</p>
+        <h2 style="color: #ff4d4d; font-size: 20px; margin-bottom: 15px;">Yay! Knew you'd say yes. 🥰</h2>
+        <p style="font-size: 15px; color: #333; margin-bottom: 15px; font-weight: bold;">Choose your adventure:</p>
         
-        <!-- Uniform Stacked Layout for Longer Text Options -->
         <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; width: 100%;">
-            <button onclick="alert('Wine bar and trauma dump locked in! 🍷')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🍷 Wine bar and trauma dump</button>
-            <button onclick="alert('Thrifting silly outfits locked in! 🧥')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">✨ Go thrifting for silly outfits then go to dinner in them</button>
-            <button onclick="alert('Arcade flexing locked in! 🕹️')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🕹️ Make it rain at the arcade and flex on the kids</button>
+            <button onclick="chooseAdventure('Wine bar and trauma dump 🍷')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🍷 Wine bar and trauma dump</button>
+            <button onclick="chooseAdventure('Thrifting silly outfits & dinner ✨')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">✨ Go thrifting for silly outfits then go to dinner in them</button>
+            <button onclick="chooseAdventure('Arcade & flexing on kids 🕹️')" style="background: #ff4d4d; color: white; border: none; padding: 12px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 320px; font-size: 14px; text-align: center; line-height: 1.4;">🕹️ Make it rain at the arcade and flex on the kids</button>
         </div>
+    `;
+}
+
+function chooseAdventure(adventureName) {
+    selectedAdventure = adventureName;
+    const container = document.getElementById("meme-container");
+    container.innerHTML = `
+        <div style="height: 150px; display: flex; justify-content: center; align-items: center; margin-bottom: 15px;">
+            <img src="https://media1.tenor.com/m/CarV7GDhiwQAAAAC/yippee-cat.gif" style="max-height: 150px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Yippee cat">
+        </div>
+        <h2 style="color: #ff4d4d; font-size: 20px; margin-bottom: 10px;">Awesome choice! 📅</h2>
+        <p style="font-size: 14px; color: #555; margin-bottom: 15px;">Pick which time works best:</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 10px; align-items: center; width: 100%;">
+            <button onclick="addToGoogleCalendar('2026-09-11T22:00:00', '2026-09-11T23:59:00')" style="background: #4285F4; color: white; border: none; padding: 11px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 300px; font-size: 14px;">🌙 Last min Friday plans - 10:00 PM</button>
+            <button onclick="addToGoogleCalendar('2026-09-12T19:00:00', '2026-09-12T21:00:00')" style="background: #4285F4; color: white; border: none; padding: 11px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 300px; font-size: 14px;">🍷 Saturday dinner - 7:00 PM</button>
+            <button onclick="addToGoogleCalendar('2026-09-13T11:00:00', '2026-09-13T13:00:00')" style="background: #4285F4; color: white; border: none; padding: 11px 15px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 300px; font-size: 14px;">🥞 Sunday brunch - 11:00 AM</button>
+        </div>
+    `;
+}
+
+function addToGoogleCalendar(startStr, endStr) {
+    const formatGoogleDate = (dateStr) => {
+        const date = new Date(dateStr);
+        return date.toISOString().replace(/-|:|\.\d\d\d/g, "");
+    };
+
+    const startFormatted = formatGoogleDate(startStr);
+    const endFormatted = formatGoogleDate(endStr);
+    const title = encodeURIComponent(`Date Night: ${selectedAdventure}`);
+    const details = encodeURIComponent(`Locked in via the ultimate date site! ❤️ Plans: ${selectedAdventure}`);
+    const guestEmail = "nikolas.cini13@outlook.com";
+
+    const googleUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${startFormatted}/${endFormatted}&details=${details}&add=${guestEmail}`;
+
+    window.open(googleUrl, '_blank');
+
+    const container = document.getElementById("meme-container");
+    container.innerHTML = `
+        <div style="height: 180px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
+            <img src="https://media1.tenor.com/m/T1x841177ioAAAAC/peach-goma-happy.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Happy dance">
+        </div>
+        <h2 style="color: #ff4d4d; font-size: 22px; margin-bottom: 15px;">All Locked In! 🎉</h2>
+        <p style="font-size: 15px; color: #333; line-height: 1.5;">Calendar invite loaded up with you as a guest. Can't wait! 🥰</p>
     `;
 }
 </script>
