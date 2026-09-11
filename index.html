@@ -17,7 +17,6 @@
 <script>
 function dodgeButton() {
     const noBtn = document.getElementById("no-btn");
-    // Switches to absolute positioning only when she tries to touch it
     noBtn.style.position = "absolute";
     const randomX = (Math.random() - 0.5) * 250;
     const randomY = (Math.random() - 0.5) * 150;
@@ -28,7 +27,7 @@ function acceptDate() {
     const container = document.getElementById("meme-container");
     container.innerHTML = `
         <div style="height: 180px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;">
-            <img src="https://media1.tenor.com/m/T1x841177ioAAAAC/peach-goma-happy.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Happy dance">
+            <img src="https://media.tenor.com/7XWbX178Y98AAAAi/peach-goma.gif" style="max-height: 180px; max-width: 100%; border-radius: 12px; object-fit: contain;" alt="Happy dance">
         </div>
         <h2 style="color: #ff4d4d; font-size: 22px; margin-bottom: 15px;">Yay! Knew you'd say yes. 🥰</h2>
         <p style="font-size: 16px; color: #333; margin-bottom: 20px; font-weight: bold;">Choose your adventure:</p>
